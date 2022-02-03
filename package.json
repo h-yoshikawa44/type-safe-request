@@ -2,8 +2,10 @@
   "name": "type-safe-request",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "run-p dev:*",
+    "dev:next": "next dev",
+    "dev:aspida": "aspida --watch",
+    "build": "aspida && next build",
     "start": "next start",
     "lint-check": "yarn lint:eslint && yarn check:prettier",
     "lint:eslint": "next lint",
@@ -15,6 +17,7 @@
     "preinstall": "typesync || echo 'skip typesync'"
   },
   "dependencies": {
+    "@aspida/fetch": "^1.7.1",
     "next": "12.0.9",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -29,6 +32,7 @@
     "eslint-config-next": "12.0.9",
     "eslint-config-prettier": "^8.3.0",
     "lint-staged": "^12.3.2",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.5.1",
     "simple-git-hooks": "^2.7.0",
     "typescript": "^4.5.5",
