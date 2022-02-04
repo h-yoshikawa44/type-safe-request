@@ -1,18 +1,14 @@
-import { User, Users } from '@/models/User';
+import { RequestQuery, RequestBody, User, Users } from '@/models/User';
 
 export type Methods = {
   get: {
-    query?: {
-      limit: number;
-    };
+    query?: RequestQuery;
 
     resBody: Users;
   };
 
   post: {
-    reqBody: {
-      name: string;
-    };
+    reqBody: RequestBody;
 
     resBody: User;
     /**

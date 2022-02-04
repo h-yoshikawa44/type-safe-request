@@ -1,4 +1,4 @@
-import { User } from '@/models/User';
+import { RequestBody, User } from '@/models/User';
 
 export type Methods = {
   get: {
@@ -6,9 +6,7 @@ export type Methods = {
   };
 
   put: {
-    reqBody: {
-      name: string;
-    };
+    reqBody: RequestBody;
 
     resBody: User;
   };
