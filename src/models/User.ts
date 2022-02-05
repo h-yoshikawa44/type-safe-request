@@ -21,6 +21,15 @@ export const postRequestBodySchema = z
   })
   .strict();
 
+export type RequestPathParams = {
+  userId: string;
+};
+
+// パスパラメータとしては全て文字列になるので、文字列で数字のみにする
+export const requestPathParamsSchema = z.object<ToZod<RequestPathParams>>({
+  userId: z.string().regex(/\d+/),
+});
+
 export type User = {
   id: number;
   name: string;

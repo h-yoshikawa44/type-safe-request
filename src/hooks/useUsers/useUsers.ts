@@ -18,7 +18,7 @@ const useUsers = () => {
       })
       .catch((err) => {
         if (err instanceof HTTPError) {
-          setErrorMessage('ユーザ情報の取得に失敗しました');
+          setErrorMessage('ユーザ一覧情報の取得に失敗しました');
         } else if (err instanceof ZodError) {
           setErrorMessage('想定しないデータの取得が行われました');
         }
