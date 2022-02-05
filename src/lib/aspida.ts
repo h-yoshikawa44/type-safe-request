@@ -7,6 +7,4 @@ const fetchConfig: FetchConfig = {
   throwHttpErrors: true, // throw an error on 4xx/5xx, default is false
 };
 
-const client = api(aspida(fetch, fetchConfig));
-
-export { client };
+export const client = api(aspida(fetch, fetchConfig));
