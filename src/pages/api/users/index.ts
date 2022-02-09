@@ -47,5 +47,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         }
       }
       break;
+    default:
+      const errorResponse: ErrorResponse = {
+        message: 'このエンドポイントで、そのメソッドは定義されていません。',
+      };
+      console.error(errorResponse);
+      res.status(405).json(errorResponse);
   }
 }
