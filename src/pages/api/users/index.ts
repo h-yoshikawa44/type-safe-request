@@ -5,6 +5,7 @@ import {
   postRequestBodySchema,
   User,
 } from '@/models/User';
+import { ErrorResponse } from '@/models/ErrorResponse';
 import { users } from '@/mock/user';
 import { ZodError } from 'zod';
 
@@ -20,9 +21,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         }
       } catch (e) {
         if (e instanceof ZodError) {
-          const errorMessage = '不正なクエリパラメータです。';
-          console.error(errorMessage, e);
-          res.status(400).send(errorMessage);
+          const errorResponse: ErrorResponse = {
+            message: '不正なクエリパラメータです。',
+          };
+          console.error(errorResponse, e);
+          res.status(400).json(errorResponse);
         }
       }
       break;
@@ -36,9 +39,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         res.status(201).json(newUser);
       } catch (e) {
         if (e instanceof ZodError) {
-          const errorMessage = '不正なリクエストパラメータです。';
-          console.error(errorMessage, e);
-          res.status(400).send(errorMessage);
+          const errorResponse: ErrorResponse = {
+            message: '不正なリクエストパラメータです。',
+          };
+          console.error(errorResponse, e);
+          res.status(400).json(errorResponse);
         }
       }
       break;
