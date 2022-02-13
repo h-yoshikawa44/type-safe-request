@@ -11,9 +11,7 @@ export const getListRequestQuerySchema = z
   })
   .strict();
 
-export type PostRequestBody = {
-  name: string;
-};
+export type PostRequestBody = Pick<User, 'name'>;
 
 export const postRequestBodySchema = z
   .object<ToZod<PostRequestBody>>({
